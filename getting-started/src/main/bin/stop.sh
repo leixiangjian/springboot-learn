@@ -1,0 +1,1 @@
+pkill -f  com.springboot.learn.GettingStartedApplication
