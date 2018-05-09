@@ -2,6 +2,7 @@
 spring-boot 最佳实践学习
 ## 一、学习结构
 #### 1). [ 基础 - 入门 ]
+project:getting-started、springboot-configuration<br>
 - 带着问题学习<br>
  pom.xml引用的包、使用的日志组件是什么、怎么打包、部署结构规划、启动脚本、相关脚本服务命令<br>
  #### a.pom.xml引用的包<br>
