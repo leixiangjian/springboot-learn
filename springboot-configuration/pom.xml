@@ -50,6 +50,13 @@
 			<artifactId>disruptor</artifactId>
 			<version>3.3.6</version>
 		</dependency>
+
+		<!-- 自定义 swagger2 Starter 组件依赖 -->
+		<dependency>
+			<groupId>com.spring4all</groupId>
+			<artifactId>spring-boot-starter-swagger</artifactId>
+			<version>1.5.1.RELEASE</version>
+		</dependency>
 	</dependencies>
 	<!-- Package as an executable jar -->
 	<build>
