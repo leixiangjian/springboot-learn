@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.springboot.learn.configuration.annotationimport.DirectImport;
 
-@Component
+//@Component
 public class ImportService {
 	@Autowired
 	DirectImport directImport;
