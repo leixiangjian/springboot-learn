@@ -14,6 +14,7 @@ project:getting-started、springboot-configuration<br>
  #### d.部署结构规划<br>
  目录bin[启动/停止命令]、config[log4j.xml&application.yml]、lib[jar]、logs[output log file]、start.bat/startup.sh<br>
 #### 2). [ 基础 - Web 开发 ]<br>
+ 包括了按照webjars规则规划与引入资源、请求参数的验证与包装、响应的格式转换、请求的过滤与拦截<br>
 #### 3). [ 基础 – 安全 ]<br>
 #### 4). [ 基础 – 数据存储 ]<br>
 #### 5). [ 基础 – 数据缓存 ]<br>
