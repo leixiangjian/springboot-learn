@@ -7,3 +7,21 @@ SpringBoot中默认是slf4j+logback的方式记录日志，如果我们需要切
   <artifactId>slf4j-log4j12</artifactId>
 </dependency>
 ```
+resources/log4j.properties<br>
+```
+### set log levels ###
+log4j.rootLogger=debug,stdout,D,E
+### 输出到控制台###
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target=System.out
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{ 1 }:%L - %m%n
+
+#### 输出到日志文件 ####
+#log4j.appender.D = org.apache.log4j.DailyRollingFileAppender
+#log4j.appender.D.File=logs/log.log
+#log4j.appender.D.Append=true
+#log4j.appender.D.Threshold=DEBUG
+#log4j.appender.D.layout=org.apache.log4j.patternLayout
+#log4j.appender.D.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%t:%r] - [%p] %m%n
+```
