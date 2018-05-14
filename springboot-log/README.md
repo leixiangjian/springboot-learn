@@ -25,3 +25,35 @@ log4j.appender.stdout.layout.ConversionPattern=%d{ABSOLUTE} %5p %c{ 1 }:%L - %m%
 #log4j.appender.D.layout=org.apache.log4j.patternLayout
 #log4j.appender.D.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%t:%r] - [%p] %m%n
 ```
+
+切换日志框架是按照slf4j的日志是配图，进行相关的切换<br>
+```
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-web</artifactId>
+  <exclusions>
+       <exclusion>
+             <artifactId>logback-classic</artifactId>
+             <groupId>ch.qos.logback</groupId>
+       </exclusion>
+  </exclusions>
+</dependency>
+```
+SpringBoot中还提供了spring-boot-starter-log4j2这个启动包直接替换掉Springboot默认的日志配置<br>
+```
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter</artifactId>
+	<exclusions>
+		<exclusion>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
+		</exclusion>
+	</exclusions>
+</dependency>
+
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-log4j2</artifactId>
+</dependency>
+```
