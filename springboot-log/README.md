@@ -1,9 +1,9 @@
 SpringBoot中默认是slf4j+logback的方式记录日志，如果我们需要切换到其他的日志，首先需要排除掉原有的日志包。修改pom文件。<br>
 如果你需要使用log4j2日志系统，则需要通过在pom文件中配置排除一些应用包，如下:<br>
 导入slf4j-log4j12的slf4j适配器包<br>
-'''
+` `` 
 ><dependency><br>
 >><groupId>org.slf4j</groupId><br>
 >><artifactId>slf4j-log4j12</artifactId><br>
 ></dependency><br>
-'''
+` `` 
