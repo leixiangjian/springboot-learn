@@ -9,6 +9,8 @@ project:getting-started、springboot-configuration<br>
  继承默认的spring-boot-starter-parent，引入spring-boot-starter、spring-boot-starter-web<br>
  #### b.使用的日志组件是什么<br>
  这里使用log4j来记录日志,排除掉logback<br>
+ spring-boot引导使用commons logging日志组件，默认配置提供了java util logging、log4j2、logback；
+ 如果使用"Starters"组件，则默认使用Logback日志组件进行记录
  #### c.怎么打包<br>
  通过使用spring-boot-maven-plugin、maven-assembly-plugin来进行打包<br>
  #### d.部署结构规划<br>
