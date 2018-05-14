@@ -1,6 +1,8 @@
 # WebMvcRegistrationsAdapter<br>
-		如果保留Spring Boot MVC特性，你只需添加其他的MVC配置（拦截器，格式化处理器，视图控制器等）。你可以添加自己的 WebMvcConfigurerAdapter 类型的 @Configuration 类，而不需要注解 @EnableWebMvc
-		如果希望使用自定义的 RequestMappingHandlerMapping ， RequestMappingHandlerAdapter ，或 ExceptionHandlerExceptionResolver ，你可以声明一个 WebMvcRegistrationsAdapter 实例提供这些组件
+		如果保留Spring Boot MVC特性，你只需添加其他的MVC配置（拦截器，格式化处理器，视图控制器等）。
+	你可以添加自己的 WebMvcConfigurerAdapter 类型的 @Configuration 类，而不需要注解 @EnableWebMvc
+	如果希望使用自定义的 RequestMappingHandlerMapping ， RequestMappingHandlerAdapter ，
+	或 ExceptionHandlerExceptionResolver ，你可以声明一个 WebMvcRegistrationsAdapter 实例提供这些组件
 ```
 @Configuration
 public class WebMvcConfig extends WebMvcRegistrationsAdapter {
