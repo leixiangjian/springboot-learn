@@ -28,5 +28,5 @@ public class MyConfiguration {
 ```
 
 # 静态资源<br>
-	默认情况下，Spring Boot从classpath下的 /static （ /public ， /resources 或 /META-INF/resources ）文件夹，
-或从 ServletContext 根目录提供静态内容
+		默认情况下，Spring Boot从classpath下的 /static （ /public ， /resources 或 /META-INF/resources ）文件夹，
+	或从 ServletContext 根目录提供静态内容
