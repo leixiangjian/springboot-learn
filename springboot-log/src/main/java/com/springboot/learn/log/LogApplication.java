@@ -1,16 +1,18 @@
 package com.springboot.learn.log;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import lombok.extern.apachecommons.CommonsLog;
-
 @SpringBootApplication
-@CommonsLog
 public class LogApplication {
+	private static final Logger logger = LoggerFactory.getLogger(LogApplication.class);
 	public static void main(String[] args) {
-		log.info("xxx");
+		logger.info("xxxx");
 		SpringApplication.run(LogApplication.class, args);
+		
+		logger.info("yyyy");
 	}
 
 }
