@@ -3,10 +3,19 @@ package com.springboot.learn.web.controller.bean;
 import java.util.Date;
 
 public class User {
+	private int id;
 	private String name;
 	private String password;
 	private String email;
 	private Date dob;
+
+	public User() {}
+	public User(Integer id, String userName, String password) {
+		super();
+		this.id = id;
+		this.name = userName;
+		this.password = password;
+	}
 
 	public String getName() {
 		return name;
@@ -40,9 +49,18 @@ public class User {
 		this.dob = dob;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", password=" + password + ", email=" + email + ", dob=" + dob + "]";
+		return "User [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email + ", dob=" + dob
+				+ "]";
 	}
 
 }

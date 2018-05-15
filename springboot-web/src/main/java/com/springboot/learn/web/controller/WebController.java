@@ -50,4 +50,5 @@ public class WebController {
 	public String httpMsgConvert(@RequestBody String string) {
 		return "Read string '" + string + "'";
 	}
+
 }
