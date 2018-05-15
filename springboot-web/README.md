@@ -29,7 +29,19 @@ public class MyConfiguration {
 }
 ```
 
-# 静态资源<br>
+##ConfigurableWebBindingInitializer
+	在controller中定义
+```
+		@InitBinder
+    public void initBinder(WebDataBinder webDataBinder) throws Exception{
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        simpleDateFormat.setLenient(false);
+        webDataBinder.registerCustomEditor(Date.class , new CustomDateEditor(simpleDateFormat , true));
+    }
+```
+# 资源引用
+
+## 静态资源<br>
 		默认情况下，Spring Boot从classpath下的 /static （ /public ， /resources 或 /META-INF/resources ）文件夹，
 	或从 ServletContext 根目录提供静态内容,这是通过Spring MVC的 ResourceHttpRequestHandler 实现的，你可以自定
 	义 WebMvcConfigurerAdapter 并覆写 addResourceHandlers 方法来改变该行为（加载静态文件）.
@@ -46,18 +58,6 @@ public class CustomerInterceptorConfig extends WebMvcConfigurationSupport {
     }
 }
 ```
-
-##ConfigurableWebBindingInitializer
-	在controller中定义
-```
-		@InitBinder
-    public void initBinder(WebDataBinder webDataBinder) throws Exception{
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        simpleDateFormat.setLenient(false);
-        webDataBinder.registerCustomEditor(Date.class , new CustomDateEditor(simpleDateFormat , true));
-    }
-```
-
 ## web-jars
 
 # 类型格式转换
