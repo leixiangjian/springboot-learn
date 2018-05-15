@@ -62,8 +62,22 @@ public class CustomerInterceptorConfig extends WebMvcConfigurationSupport {
 
 # 类型格式转换
 ## converter
+```
+	@Override
+	public FormattingConversionService mvcConversionService() {
+		StringToDateConverter stringToDateConverter = new StringToDateConverter("yyyy-MM-dd HH:mm");
+		FormattingConversionService formattingConversionService = super.mvcConversionService();
+		formattingConversionService.addConverter(stringToDateConverter);
+		return formattingConversionService;
+	}
+```
 ## formatter
-
+```
+	@Override
+	public void addFormatters(FormatterRegistry registry) {
+	    registry.addFormatter(new BookFormatter());
+	}
+```
 # Http消息格式转换
 ## HttpMessageConverters
 ### 选择HttpMessageConverter
@@ -71,7 +85,7 @@ public class CustomerInterceptorConfig extends WebMvcConfigurationSupport {
 ### 如何加入HttpMessageConverter
 	通过configureMessageConverters这个方法添加转换器，会直接忽略掉其他的转换器；
 	通过extendMessageConverters扩展方法扩展转换器是在原有基础上增加；
-	request的消息体与response的消息体将会通过转换器进行处理。
+	request的requestBody与response的responseBody将会通过转换器进行处理。
 ```
 @Configuration
 public class WebConfiguration extends WebMvcConfigurationSupport{
