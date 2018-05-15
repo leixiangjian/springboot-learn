@@ -111,6 +111,35 @@ public class WebConfiguration extends WebMvcConfigurationSupport{
 	7).org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter
 	8).org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
 
-#拦截器
+# 拦截器
+```
+	@Override
+	protected void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(new CustomerHandlerInterceptor());
+		registry.addWebRequestInterceptor(new CustomerWebRequestInterceptor());
+	}
+```
+# 过滤器
+```
+@Configuration
+public class ConfigurationFilter {
+	@Bean
+    public RemoteIpFilter remoteIpFilter() {
+        return new RemoteIpFilter();
+    }
+	
+	@Bean
+    public FilterRegistrationBean testFilterRegistration() {
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        registration.setFilter(new CustomerFilter());//添加过滤器
+        registration.addUrlPatterns("/*");//设置过滤路径，/*所有路径
+        registration.addInitParameter("name", "alue");//添加默认参数
+        registration.setName("CustomerFilter");//设置优先级
+        registration.setOrder(1);//设置优先级
+        return registration;
+    }
+}
 
-#过滤器
+
+
+```

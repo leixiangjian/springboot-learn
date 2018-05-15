@@ -8,11 +8,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.format.support.FormattingConversionService;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import com.springboot.learn.web.converter.StringToDateConverter;
 import com.springboot.learn.web.formatter.BookFormatter;
 import com.springboot.learn.web.httpmessageconverters.CustomerStringHttpMessageConverter;
+import com.springboot.learn.web.interceptor.CustomerHandlerInterceptor;
+import com.springboot.learn.web.interceptor.CustomerWebRequestInterceptor;
 
 @Configuration
 public class WebConfiguration extends WebMvcConfigurationSupport{
@@ -40,6 +43,12 @@ public class WebConfiguration extends WebMvcConfigurationSupport{
 	@Override
 	public void addFormatters(FormatterRegistry registry) {
 	    registry.addFormatter(new BookFormatter());
+	}
+	
+	@Override
+	protected void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(new CustomerHandlerInterceptor());
+		registry.addWebRequestInterceptor(new CustomerWebRequestInterceptor());
 	}
 
 }
