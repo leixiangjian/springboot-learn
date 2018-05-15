@@ -66,5 +66,33 @@ public class CustomerInterceptorConfig extends WebMvcConfigurationSupport {
 
 # Http消息格式转换
 ## HttpMessageConverters
-
-	
+### 选择HttpMessageConverter
+	springmvc通过自定义http accept或者content-type自动选择HttpMessageConverter
+### 如何加入HttpMessageConverter
+	通过configureMessageConverters这个方法添加转换器，会直接忽略掉其他的转换器；
+	通过extendMessageConverters扩展方法扩展转换器是在原有基础上增加；
+	request的消息体与response的消息体将会通过转换器进行处理。
+```
+@Configuration
+public class WebConfiguration extends WebMvcConfigurationSupport{
+	private static final Logger logger = LoggerFactory.getLogger(WebConfiguration.class);
+	@Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        for (HttpMessageConverter<?> messageConverter : converters) {
+        	logger.info("{}",messageConverter.getClass().getName()); //2
+        }
+    }
+	@Override
+	protected void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+		converters.add(new CustomerStringHttpMessageConverter());
+	}
+```
+### 消息转换器种类
+	1).org.springframework.http.converter.ByteArrayHttpMessageConverter
+	2).org.springframework.http.converter.StringHttpMessageConverter
+	3).org.springframework.http.converter.ResourceHttpMessageConverter
+	4).org.springframework.http.converter.ResourceRegionHttpMessageConverter
+	5).org.springframework.http.converter.xml.SourceHttpMessageConverter
+	6).org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter
+	7).org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter
+	8).org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
