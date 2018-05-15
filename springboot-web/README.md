@@ -110,3 +110,7 @@ public class WebConfiguration extends WebMvcConfigurationSupport{
 	6).org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter
 	7).org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter
 	8).org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+
+#拦截器
+
+#过滤器
