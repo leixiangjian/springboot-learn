@@ -59,6 +59,64 @@ public class CustomerInterceptorConfig extends WebMvcConfigurationSupport {
 }
 ```
 ## web-jars
+	资源控制可以通过以下代码来设置:
+```
+	/**
+	 * 配置请求视图映射
+	 * @return
+	 */
+	@Bean
+	public InternalResourceViewResolver resourceViewResolver()
+	{
+	    InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+	    //请求视图文件的前缀地址
+	    internalResourceViewResolver.setPrefix("/webjars/html");
+	    //请求视图文件的后缀
+	    internalResourceViewResolver.setSuffix(".html");
+	    return internalResourceViewResolver;
+	}
+    
+    /**
+     * 视图配置
+     * @param registry
+     */
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        super.configureViewResolvers(registry);
+        registry.viewResolver(resourceViewResolver());
+    }
+```
+## 控制器视图控制
+	控制器可以通过modelAndView来跳转到最终视图:
+```
+	@RequestMapping(value = "/fowardUrl")
+	public ModelAndView fowardUrl () {
+		ModelAndView  modelView = new ModelAndView ();
+		modelView.setViewName("/index");
+		return modelView;
+	}
+```
+	控制器也可以通过forward来跳转到下一个控制器
+```
+	@RequestMapping(value = "/forwardUrl")
+	public String forwardhtml() {
+		return "forward:/webjar/view";
+	}
+	
+	@RequestMapping(value = "/view")
+	public ModelAndView fowardUrl () {
+		ModelAndView  modelView = new ModelAndView ();
+		modelView.setViewName("/index");
+		return modelView;
+	}
+```
+	控制器也可以通过redirect来跳转到下一个控制器,但是浏览器地址栏会变成最终的跳转地址
+```
+	@RequestMapping(value = "/redirectUrl")
+	public String redirectUrl() {
+		return "redirect:/webjar/view";
+	}
+```
 
 # 类型格式转换
 ## converter

@@ -54,6 +54,7 @@
 			<artifactId>webjars-locator</artifactId>
 			<version>0.32-1</version>
 		</dependency>
+		
 	</dependencies>
 
 	<!-- Package as an executable jar -->

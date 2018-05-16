@@ -25,7 +25,7 @@ public class CustomerFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) srequest;
 		// 打印请求Url
-		logger.info("this is MyFilter,url :{}", request.getRequestURI());
+		logger.info("this is CustomerFilter,url :{}", request.getRequestURI());
 		filterChain.doFilter(srequest, sresponse);
 	}
 
