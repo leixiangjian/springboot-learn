@@ -198,6 +198,24 @@ public class ConfigurationFilter {
     }
 }
 
-
-
 ```
+
+# 定义自己的Favicon
+	可以在application.properties中设置关闭Favicon，默认为开启
+```
+	spring.mvc.favicon.enabled=false
+```
+	设置自己的Favicon:
+	只需将自己的favicon.ico（文件名不能变动）文件放置在类路径根目录、
+	类路径META-INF/resources/下、类路径resources/下、
+	类路径static/下或类路径public/下
+
+# 定义错误页面
+## 错误页面资源
+```
+ 	 可以在/META-INF/resources/webjars/html/errors中定义，比如:
+ 	500.html、400.html、404.html
+```
+## 控制层异常拦截
+	1).可以通过通过定义ErrorController来处理，这个包括了所以得请求错误编码处理
+	2).可以通过@ControllerAdvice来处理，这个拦截器只能针对Controller异常，如果是404是到不了这里的

@@ -7,3 +7,7 @@ server:
     dir: ../logs
 logging:
   path: ../logs
+  
+server:
+  error:
+    include-stacktrace: always
