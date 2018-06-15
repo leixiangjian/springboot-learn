@@ -3,6 +3,8 @@ package com.springboot.learn.web.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -49,6 +51,11 @@ public class WebController {
 	@RequestMapping(value="/httpMsgConvert", method={RequestMethod.POST,RequestMethod.GET})
 	public String httpMsgConvert(@RequestBody String string) {
 		return "Read string '" + string + "'";
+	}
+	
+	@RequestMapping(value="/requestTest", method={RequestMethod.POST,RequestMethod.GET})
+	public String requestTest(HttpServletRequest request) {
+		return null;
 	}
 
 }
