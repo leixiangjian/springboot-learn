@@ -1,5 +1,7 @@
 # springboot-learning
 spring-boot 最佳实践学习
+![Spring Boot 2.0](https://img.shields.io/badge/Spring%20Boot-2.0-brightgreen.svg)
+
 ## 一、学习结构
 #### 1). [ 基础 - 入门 ]
 project:getting-started、springboot-configuration<br>
